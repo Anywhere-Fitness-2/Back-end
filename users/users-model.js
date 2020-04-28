@@ -5,7 +5,6 @@ module.exports = {
   findById,
   findd,
   insert,
-findByName,
   update,
   remove,
   // getUserPosts
