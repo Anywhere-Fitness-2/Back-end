@@ -25,9 +25,7 @@ function findd() {
     "Location","RegisteredAttendees","MaxClassSize"
     );
   }
-  function findByName(arg) {
-    return db("randoms").select('Name').where({arg}).first()
-  }
+
 
 function add (dataToInsert){
   return db('randoms').insert(dataToInsert);
