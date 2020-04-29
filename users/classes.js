@@ -10,6 +10,12 @@ router.get('/',(req,res)=>{
     
 });
 
+router.get('/instructor/:user_id/classes',validateUserIds,(req,res)=>{
+  res.status(200).json(req.user);
+
+  
+});
+
 router.get('/search',(req,res)=>{
   Users.findd()
   .then(classes => {
@@ -17,7 +23,23 @@ router.get('/search',(req,res)=>{
   })
   
 });
-
+function validateUserIds(req, res, next) {
+  // do your magic!
+  const { user_id } = req.params;
+  Users. findByIds(user_id)
+    .then(user => {
+      if (user) {
+        req.user = user;
+        next();
+      } else {
+        res.status(400).json({ error: 'Invalid user ID.' });
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({ error: 'Server error validating user ID' });
+    });
+}
 
 router.put('/:id', validateUserId, (req, res) => {
   // do your magic!

@@ -3,6 +3,7 @@ const db = require("../database/dbConfig.js");
 module.exports = {
   add,
   findById,
+  findByIds,
   findd,
   insert,
   update,
@@ -21,7 +22,7 @@ module.exports = {
 
 function findd() {
     return db("randoms").select("Name","Type","StartTime","Duration","IntensityLevel",
-    "Location","RegisteredAttendees","MaxClassSize"
+    "Location","RegisteredAttendees","MaxClassSize","user_id"
     );
   }
 
@@ -31,6 +32,11 @@ function add (dataToInsert){
 };
 function findById(id) {
   return db("randoms").where({ id }).first();
+}
+function findByIds(user_id) {
+  return db("randoms").where({ user_id })
+  .first();
+  
 }
 
 
