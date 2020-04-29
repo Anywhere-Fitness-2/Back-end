@@ -19,4 +19,3 @@ module.exports = (req, res, next) => {
     res.status(401).json({ message: 'you cannot proceed without a token' })
   }
 };
-© 2020 GitHub, 
