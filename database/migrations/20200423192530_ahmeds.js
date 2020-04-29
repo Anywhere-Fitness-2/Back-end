@@ -32,6 +32,7 @@ exports.up = function(knex) {
       .inTable('users')
       .onDelete('CASCADE')
       .onUpdate('CASCADE');
+<<<<<<< HEAD
     //   randoms
     //   .integer('class_id')
     //   .unsigned()
@@ -40,6 +41,8 @@ exports.up = function(knex) {
     //   .inTable('randoms')
     //   .onDelete('CASCADE')
     //   .onUpdate('CASCADE');
+=======
+>>>>>>> 500761086732dd9c7c20d4aec8057f424eed623c
       
       
 
