@@ -20,7 +20,7 @@
     "knex": "^0.21.0",
     "node-gyp": "^6.1.0",
     "sqlite": "^4.0.7",
-    "sqlite3": "^4.1.1"
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "node-pre-gyp": "^0.12.0",
