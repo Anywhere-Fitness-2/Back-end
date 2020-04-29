@@ -2,7 +2,7 @@ exports.seed = function(knex) {
     return knex('users')
       .del()
       .then(function() {
-        return knex('users').inserts([
+        return knex('users').insert([
           {
             id: 3,
             email: 'test@email.com',

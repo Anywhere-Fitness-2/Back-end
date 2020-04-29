@@ -1,6 +1,9 @@
 # Back-end
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1cb6f6adb1b13e6da15525f3f6c9bdccff45c992
 # End-Points
 https://anywherefitness100.herokuapp.com/api/auth/register
 https://anywherefitness100.herokuapp.com/auth/login
