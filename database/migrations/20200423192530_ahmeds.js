@@ -24,6 +24,14 @@ exports.up = function(knex) {
       randoms.string("Location",128).notNullable();
       randoms.string("RegisteredAttendees",128).notNullable();
       randoms.string("MaxclassSize",128).notNullable();
+      randoms
+      .integer('user_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
     //   randoms
     //   .integer('class_id')
     //   .unsigned()
