@@ -4,6 +4,9 @@ const Users = require('./auth-model');
 
 const generateToken = require('./generate-token');
 
+router.get('/', (req,res)=>{
+  res.status(200).json({message: 'auth api running'})
+})
 
 router.post("/register", (req, res) => {
   let user = req.body; // username, password
