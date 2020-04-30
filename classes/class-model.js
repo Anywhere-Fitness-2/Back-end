@@ -3,22 +3,11 @@ const db = require("../database/dbConfig.js");
 module.exports = {
   add,
   findById,
-  findByIds,
   findd,
-  insert,
   update,
   remove,
   // getUserPosts
 };
-
-
-
-// function getUserPosts(userId) {
-//   return db('posts as p')
-//     .join('users as u', 'u.id', 'p.user_id')
-//     .select('p.id', 'p.text', 'u.name as postedBy')
-//     .where('p.user_id', userId);
-// }
 
 function findd() {
     return db("randoms").select("Name","Type","StartTime","Duration","IntensityLevel",
@@ -41,11 +30,11 @@ function findByIds(user_id) {
 
 
 
-function insert(user) {
+function insert(data) {
   return db('randoms')
-    .insert(user)
+    .insert(data)
     .then(ids => {
-      return getById(ids[0]);
+      return findByIds(ids[0]);
     });
 }
 
@@ -54,6 +43,12 @@ function update(id, changes) {
   return db('randoms')
     .where({ id })
     .update(changes);
+}
+
+function updateClass(id, changes) {
+    return db('randoms')
+    .where({"user_id": id})
+    .update(changes)
 }
 
 function remove(id) {

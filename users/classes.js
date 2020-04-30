@@ -1,6 +1,6 @@
 const router = require("express").Router();
-
 const Users = require("./users-model.js");
+const classes = require("../classes/class-model.js")
 
 router.get('/',(req,res)=>{
     Users.findd()
@@ -10,6 +10,51 @@ router.get('/',(req,res)=>{
     
 });
 
+router.get('/instructor/:user_id/classes',validateUserIds,(req,res)=>{
+  const id= req.params.id
+  classes.findByIds(id)
+    .then(classes => {
+      res.status(200).json(classes)
+    })
+    .catch(error => {
+      res.status(500).json({message: "there was an error fetching classes"})
+    });
+});
+
+router.post('/instructor/class', validateUserIds,(req, res) => {
+  const data = req.body
+  classes.add(data)
+  .then(data => {
+    res.status(200).json(data)
+  })
+  .catch(err => {
+    res.status(500).json({message: "There was an error adding class"})
+  })
+});
+
+router.put("/instructor/:user_id/classes/:id",validateUserIds,(req,res)=>{
+  const id = req.params.id;
+  const changes = req.body;
+  classes.update(id, user_id, changes)
+  .then(changes => {
+    res.status(200).json(changes)
+  })
+  .catch(err => {
+    res.status(500).json({message: "There was an error updating class"})
+  })
+});
+
+router.delete("/instructor/:user_id/classes/:id",validateUserIds,(req,res)=>{
+  const id = req.params.id;
+  classes.remove(id)
+  .then(del => {
+    res.status(200).json({message: `Deleted ${del} records`})
+  })
+  .catch(error => {
+    res.status(500).json({message: "error deleting class"})
+  })
+})
+
 router.get('/search',(req,res)=>{
   Users.findd()
   .then(classes => {
@@ -17,7 +62,23 @@ router.get('/search',(req,res)=>{
   })
   
 });
-
+function validateUserIds(req, res, next) {
+  // do your magic!
+  const { user_id } = req.params;
+  Users. findByIds(user_id)
+    .then(user => {
+      if (user) {
+        req.user = user;
+        next();
+      } else {
+        res.status(400).json({ error: 'Invalid user ID.' });
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({ error: 'Server error validating user ID' });
+    });
+}
 
 router.put('/:id', validateUserId, (req, res) => {
   // do your magic!

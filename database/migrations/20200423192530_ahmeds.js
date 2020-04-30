@@ -16,7 +16,6 @@ exports.up = function(knex) {
     .createTable('randoms',randoms =>{
       randoms.increments();
       randoms.string("NAME",128).notNullable();
-
       randoms.string("TYPE",128).notNullable();
       randoms.string("StartTime",128).notNullable();
       randoms.string("Duration",128).notNullable();
@@ -32,17 +31,6 @@ exports.up = function(knex) {
       .inTable('users')
       .onDelete('CASCADE')
       .onUpdate('CASCADE');
-<<<<<<< HEAD
-    //   randoms
-    //   .integer('class_id')
-    //   .unsigned()
-    //   .notNullable()
-    //   .references('id')
-    //   .inTable('randoms')
-    //   .onDelete('CASCADE')
-    //   .onUpdate('CASCADE');
-=======
->>>>>>> 500761086732dd9c7c20d4aec8057f424eed623c
       
       
 
