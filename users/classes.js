@@ -10,10 +10,13 @@ router.get('/',(req,res)=>{
     
 });
 
-router.get('/instructor/class/:user_id',validateUserIds,(req,res)=>{
-  res.status(200).json(req.user);
+router.get('/instructor/:user_id/classes',validateUserIds,(req,res)=>{
+  res.status(200).json(req.user)
 
-router.post('/instructor/class', validateUserIds,(req, res) => {
+    
+});
+
+router.post('/instructor/class', (req, res) => {
   const data = req.body
   classes.insert(data)
   .then(data => {
