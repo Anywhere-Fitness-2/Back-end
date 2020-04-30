@@ -23,7 +23,7 @@ router.get('/instructor/:user_id/classes',validateUserIds,(req,res)=>{
 
 router.post('/instructor/class', validateUserIds,(req, res) => {
   const data = req.body
-  classes.add(data)
+  classes.insert(data)
   .then(data => {
     res.status(200).json(data)
   })
