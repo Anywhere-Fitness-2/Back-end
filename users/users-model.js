@@ -5,7 +5,6 @@ module.exports = {
   findById,
   findd,
   insert,
-findByName,
   update,
   remove,
   // getUserPosts
@@ -25,10 +24,7 @@ function findd() {
     "Location","RegisteredAttendees","MaxClassSize"
     );
   }
-  function findByName() {
-    return db("randoms").select("Name"
-    );
-  }
+
 
 function add (dataToInsert){
   return db('randoms').insert(dataToInsert);

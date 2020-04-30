@@ -24,6 +24,15 @@ exports.up = function(knex) {
       randoms.string("Location",128).notNullable();
       randoms.string("RegisteredAttendees",128).notNullable();
       randoms.string("MaxclassSize",128).notNullable();
+      randoms
+      .integer('user_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('users')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
+<<<<<<< HEAD
     //   randoms
     //   .integer('class_id')
     //   .unsigned()
@@ -32,6 +41,8 @@ exports.up = function(knex) {
     //   .inTable('randoms')
     //   .onDelete('CASCADE')
     //   .onUpdate('CASCADE');
+=======
+>>>>>>> 500761086732dd9c7c20d4aec8057f424eed623c
       
       
 

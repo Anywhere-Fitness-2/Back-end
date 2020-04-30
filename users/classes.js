@@ -9,12 +9,15 @@ router.get('/',(req,res)=>{
     })
     
 });
-router.get("/reg",(req,res)=>{
-  Users.findByName()
-  .then(coo =>{
-    res.status(400).json(coo)
+
+router.get('/search',(req,res)=>{
+  Users.findd()
+  .then(classes => {
+      res.status(400).json(classes)
   })
-})
+  
+});
+
 
 router.put('/:id', validateUserId, (req, res) => {
   // do your magic!
