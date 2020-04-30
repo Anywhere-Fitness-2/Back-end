@@ -7,6 +7,7 @@ exports.up = function(knex) {
           .notNullable()
           .unique();
         users.string('password', 100).notNullable();
+     
         users
           .boolean('instructor')
           .notNullable()
@@ -27,10 +28,7 @@ exports.up = function(knex) {
       .integer('user_id')
       .unsigned()
       .notNullable()
-      .references('id')
-      .inTable('users')
-      .onDelete('CASCADE')
-      .onUpdate('CASCADE');
+    
       
       
 
