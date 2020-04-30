@@ -1,37 +1,29 @@
 const db = require("../database/dbConfig.js");
 
 module.exports = {
-<<<<<<< HEAD
-  addss,
-  findByIdss,
-  finddss,
-  updatess,
-  removess,
-=======
   add,
-  findById,
+  findByIds,
   findd,
   update,
 insert,
   remove,
->>>>>>> 61a736bb35f2dfa9bfd3780a7bc82a85197fdbf1
   // getUserPosts
 };
 
-function finddss() {
+function findd() {
     return db("randoms").select("Name","Type","StartTime","Duration","IntensityLevel",
     "Location","RegisteredAttendees","MaxClassSize","user_id"
     );
   }
 
 
-function addss (dataToInsert){
+function add (dataToInsert){
   return db('randoms').insert(dataToInsert);
 };
-// function findByIdss(id) {
-//   return db("randoms").where({ id }).first();
-// }
-function findByIdss(user_id) {
+function findById(id) {
+  return db("randoms").where({ id }).first();
+}
+function findByIds(user_id) {
   return db("randoms").where({ user_id })
   .first();
   
@@ -39,7 +31,7 @@ function findByIdss(user_id) {
 
 
 
-function insertss(data) {
+function insert(data) {
   return db('randoms')
     .insert(data)
     .then(ids => {
@@ -48,19 +40,19 @@ function insertss(data) {
 }
 
 
-function updatess(id, changes) {
+function update(id, changes) {
   return db('randoms')
     .where({ id })
     .update(changes);
 }
 
-function updateClassss(id, changes) {
+function updateClass(id, changes) {
     return db('randoms')
     .where({"user_id": id})
     .update(changes)
 }
 
-function removess(id) {
+function remove(id) {
   return db('randoms')
     .where('id', id)
     .del();
