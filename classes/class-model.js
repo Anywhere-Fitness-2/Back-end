@@ -1,11 +1,20 @@
 const db = require("../database/dbConfig.js");
 
 module.exports = {
+<<<<<<< HEAD
   addss,
   findByIdss,
   finddss,
   updatess,
   removess,
+=======
+  add,
+  findById,
+  findd,
+  update,
+insert,
+  remove,
+>>>>>>> 61a736bb35f2dfa9bfd3780a7bc82a85197fdbf1
   // getUserPosts
 };
 

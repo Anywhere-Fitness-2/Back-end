@@ -13,7 +13,27 @@ router.get('/',(req,res)=>{
 router.get('/instructor/class/:user_id',validateUserIds,(req,res)=>{
   res.status(200).json(req.user);
 
-  
+router.post('/instructor/class', validateUserIds,(req, res) => {
+  const data = req.body
+  classes.insert(data)
+  .then(data => {
+    res.status(200).json(data)
+  })
+  .catch(err => {
+    res.status(500).json({message: "There was an error adding class"})
+  })
+});
+
+router.put("/instructor/:user_id/classes/:id",validateUserIds,(req,res)=>{
+  const id = req.params.id;
+  const changes = req.body;
+  classes.update(id, user_id, changes)
+  .then(changes => {
+    res.status(200).json(changes)
+  })
+  .catch(err => {
+    res.status(500).json({message: "There was an error updating class"})
+  })
 });
 
 router.get('/search',(req,res)=>{
