@@ -7,8 +7,9 @@ module.exports = (req, res, next) => {
   if(!token) {
     jwt.verify(token, jwtSecret, (err, decodedToken) => {
       if(err) {
-        req.user = decodedToken;
-        next();      }
+        res.status(201).json({ message: 'err' })
+
+      }
        else {
         req.user = decodedToken;
         next();

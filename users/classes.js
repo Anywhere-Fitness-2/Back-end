@@ -27,6 +27,18 @@ router.post('/instructor/class', (req, res) => {
     res.status(500).json({message: "There was an error adding class"})
   })
 });
+router.delete('/instructor/:user_id/classes/:id', validateUserId, (req, res) => {
+  classes.remove(req.params.id)
+    .then(post => {
+      res.status(200).json({ message: 'The User has been deleted' });
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json({
+        error: 'The post could not be removed'
+      });
+    });
+});
 
 router.put("/instructor/:user_id/classes/:id",validateUserIds,(req,res)=>{
   const id = req.params.id;
