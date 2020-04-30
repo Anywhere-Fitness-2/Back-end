@@ -16,7 +16,6 @@ exports.up = function(knex) {
     .createTable('randoms',randoms =>{
       randoms.increments();
       randoms.string("NAME",128).notNullable();
-
       randoms.string("TYPE",128).notNullable();
       randoms.string("StartTime",128).notNullable();
       randoms.string("Duration",128).notNullable();
