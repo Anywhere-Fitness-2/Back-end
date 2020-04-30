@@ -3,7 +3,7 @@ const db = require("../database/dbConfig.js");
 module.exports = {
   add,
   findById,
-  find,
+  findd,
   update,
   remove,
   // getUserPosts
