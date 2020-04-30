@@ -30,10 +30,7 @@ server.use('/api/classes', authenticate, [logger, classes]);
 server.get('/', (req, res) => {
   res.json({ server: 'online' });
 });
-erver.use(helmet());
-server.use(express.json());
-server.use(cors());
-server.use(session(sessionConfig));
+
 function logger(req, res, next) {
   console.log(req.method, req.url, Date.now());
   next();
