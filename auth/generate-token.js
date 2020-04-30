@@ -3,10 +3,9 @@ const { jwtSecret } = require('./secrets');
 
 module.exports = function generateToken(user) {
   const payload = {
-    email: user.email,
     subject: user.id,
-
-    instructor: user.instructor,
+    email: user.email,
+    instructor: user.instructor
    
   };
   const options = {

@@ -42,7 +42,6 @@ router.post('/login', (req, res) => {
           message: `Welcome ${user.email}!`,
           id: user.id,
           instructor: user.instructor,
-          email: user.email,
           token
         });
       } else {
