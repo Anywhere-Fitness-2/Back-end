@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const classes = require("../classes/class-model.js")
 
 const Users = require("./users-model.js");
 
@@ -20,7 +21,7 @@ router.post('/instructor/class', (req, res) => {
   const data = req.body
   classes.insert(data)
   .then(data => {
-    res.status(200).json(data)
+    res.status(200).json(` success`)
   })
   .catch(err => {
     res.status(500).json({message: "There was an error adding class"})
