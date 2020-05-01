@@ -9,10 +9,9 @@ router.post("/register", (req, res) => {
   let user = req.body; // username, password
 
   // rounds are 2 to the N times
-  const rounds = process.env.HASH_ROUNDS || 14;
 
   // hash the user.password
-  const hash = bcrypt.hashSync(user.password, rounds);
+  const hash = bcrypt.hashSync(user.password, 14);
 
   // update the user to use the hash
   user.password = hash;

@@ -6,7 +6,7 @@ const Users = require("./users-model.js");
 router.get('/',(req,res)=>{
     Users.findd()
     .then(classes => {
-        res.status(400).json(classes)
+        res.status(200).json(classes)
     })
     
 });
@@ -55,7 +55,7 @@ router.put("/instructor/:user_id/classes/:id",validateUserIds,(req,res)=>{
 router.get('/search',(req,res)=>{
   Users.findd()
   .then(classes => {
-      res.status(400).json(classes)
+      res.status(200).json(classes)
   })
   
 });
@@ -109,7 +109,7 @@ router.post('/', (req, res) => {
 
   Users.add(schemeData)
   .then(scheme => {
-    res.status(201).json(`Success new scheme Created${scheme}`);
+    res.status(200).json(`Success new scheme Created${scheme}`);
   })
   .catch (err => {
     res.status(500).json({ message: 'Failed to create new scheme' });
